@@ -1,0 +1,2 @@
+﻿name,middle_name,last_name,email,phone,rfc,personable_type,personable_id
+marlene,cruz,luna,marlenec@mail.com,5568090504,CULM790806RTY,App\Models\Client,1
