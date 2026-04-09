@@ -13,10 +13,23 @@ return new class extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('contract_type')->nullable();
+            $table->foreignId('client_id')
+                  ->constrained('clients')
+                  ->cascadeOnDelete();
+
+            $table->foreignId('person_id')
+                  ->nullable()
+                  ->constrained('people')
+                  ->cascadeOnDelete();
+                  
             $table->text('description')->nullable();
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->json('ui_statements');
+            $table->json('client_statements');
+            $table->json('clauses');
+            $table->json('standards');
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->timestamps();
         });
     }

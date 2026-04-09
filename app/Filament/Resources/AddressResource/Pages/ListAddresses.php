@@ -9,7 +9,9 @@ use Filament\Resources\Pages\ListRecords;
 class ListAddresses extends ListRecords
 {
     protected static string $resource = AddressResource::class;
+    protected static ?string $title = 'Direcciones';
 
+    
     protected function getHeaderActions(): array
     {
         return [

@@ -2,40 +2,31 @@
 
 namespace App\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
 
-class Contract extends Model
+class Contractform extends Model
 {
     protected $fillable = [
         'contract_type',
-        'client_id',
-        'person_id',
-        'description',
+        'identifier',
+        'review',
+        'effective_date',
         'ui_statements',
-        'client_statements',
         'clauses',
-        'standards',
-        'start_date',
-        'end_date',
+        'is_active',
     ];
 
     protected $casts = [
         'ui_statements' => 'array',  // convierte JSON a array automáticamente
         'client_statements' => 'array',  // convierte JSON a array automáticamente
         'clauses' => 'array',  // convierte JSON a array automáticamente
-        'standards' => 'array', // convierte JSON a array automáticamente
+        'effective_date' => 'date',
+        'is_active' => 'boolean',
     ];
 
-    public function client()
+    public function contract()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsToMany(Contract::class);
     }
 
-    public function person()
-    {
-        return $this->belongsTo(Person::class);
-    }
-
- 
 }

@@ -12,9 +12,10 @@ trait PersonFullName
     public function getFullNameAttribute(): string
     {
         $parts = [
+            $this->name,
             $this->middle_name,
             $this->last_name,
-            $this->name,
+
         ];
 
         $filtered = array_filter($parts, fn($part) => !blank($part));

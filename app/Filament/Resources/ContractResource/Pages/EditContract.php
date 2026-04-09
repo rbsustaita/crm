@@ -16,4 +16,9 @@ class EditContract extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('view-contract', ['record' => $this->record]);
+    }
 }

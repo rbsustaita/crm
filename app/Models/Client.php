@@ -44,4 +44,9 @@ class Client extends Model
         return $this->hasMany(Address::class);
 
     }
+    // Relación uno a muchos (Contract)
+    public function contracts(): HasMany
+    {
+        return $this->hasMany(Contract::class);
+    }
 }

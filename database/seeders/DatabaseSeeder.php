@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             AddressSeeder::class,
             PersonSeeder::class,
             ClientSeeder::class,
+            StandardSeeder::class,
             // Add other seeders here as needed
         ]);
 
